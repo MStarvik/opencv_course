@@ -1,0 +1,44 @@
+{
+	"name": "OpenCV Course",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"target": "devel",
+		"context": "../",
+		"args": {
+			"WORKSPACE": "${containerWorkspaceFolder}",
+		},
+	},
+	"runArgs": [
+		// If running multiple ros nodes in different Docker containers, set them to use a common network
+		"--cap-add=SYS_PTRACE",
+		"--security-opt=seccomp:unconfined",
+		"--security-opt=apparmor:unconfined",
+		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+	],
+	// If running Docker in root mode, uncomment the "remoteUser" line.
+	// If using Docker rootless, leave it commented out.
+	// More info: https://aka.ms/vscode-remote/containers/non-root.
+	"containerEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}"
+	},
+	"settings": {
+		"terminal.integrated.profiles.linux": {
+			"bash": {
+				"path": "bash"
+			},
+		},
+		"terminal.integrated.cwd": "${containerWorkspaceFolder}",
+		"terminal.integrated.defaultProfile.linux": "bash",
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+	],
+
+	// Use 'AppPorts to forward any ports, for example
+	// "appPort": ["14551:14551/udp"],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "echo \"Successfully built ROS Docker container!\"",
+}
