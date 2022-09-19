@@ -2,7 +2,7 @@
 Before starting the course, install the *Remote - Container* extension if you have not done so already. After installing the extensions, click the icon in the lower left corner and select *Reopen in Container*.
 
 ## Exercise 1 - Reading and displaying images
-This exercise is primarily meant as a test to check if your system is correctly set up to complete the course. It is also meant as an introduction to the OpenCV documentation, which you will visit frequently in your work in the perception group. Use the provided resources to complete all TODOs in exercise_1.py. When finished, run your program in any of the following ways:
+In this excerice you will read images from a file and display them. This exercise is primarily meant as a test to check if your system is correctly set up to complete the course. It is also meant as an introduction to the OpenCV documentation, which you will visit frequently in your work in the perception group. Use the provided resources to complete all TODOs in exercise_1.py. When finished, run your program in any of the following ways:
 - clicking the green arrow in the top-right corner.
 - hitting Ctrl+F5 on your keyboard.
 - running `python3 exercise_1.py` in the terminal.
@@ -14,10 +14,15 @@ When attempting to run your program for the first time you might get the warning
 - [High-level GUI](https://docs.opencv.org/4.x/d7/dfc/group__highgui.html)
 
 ## Exercise 2 - Manipulating and writing images 
+In this exercise you will convert color images to grayscale and write the result to a file. The easiest way to convert a color image to grayscale is to . 
 
+OpenCV does, of course, have built-in functions for color space conversions, but you will implement your own. Use the provided resources to complete all TODOs in exercise_2.py.
+
+### Hints
+- Implement a function with two arguments, a three-channel image and a tuple of three floating point numbers. The function should return a single channel image where each pixel is the weighted sum of the values of the corresponding pixel in the three-channel image. The weights should be the values in the tuple.
 
 ### Resources
--
+- [Basic Operations on Images](https://docs.opencv.org/4.x/d3/df2/tutorial_py_basic_ops.html)
 
 ## Exercise 3 - Profile picture generator
 In this exercise you will apply what you have learned about reading, manipulating and writing images to create a program for automatically creating profile pictures. To accomplish this, you will use a Haar feature-based cascade classifier. The cascade classifier is already implemented in OpenCV's object detection module, but you need to supply an XML-file with the parameters of the classifier.
