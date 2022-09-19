@@ -2,8 +2,11 @@
 import cv2
 from pathlib import Path
 
-cv2_data_path = Path(cv2.__file__).parent / "data"
-if not cv2_data_path.exists():
-    cv2_data_path = Path("/usr/local/share/opencv4/haarcascades")
+data_path = Path(cv2.__file__).parent / "data"
+if not data_path.exists():
+    data_path = Path("/usr/local/share/opencv4/haarcascades")
 
-face_cascade_path = str(cv2_data_path / "haarcascade_frontalface_alt2.xml")
+cascade_paths = {}
+for cascade_path in data_path.glob("*.xml"):
+    cascade_name = "_".join(cascade_path.stem.split("_")[1:])
+    cascade_paths[cascade_name] = cascade_path

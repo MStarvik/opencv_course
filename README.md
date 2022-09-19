@@ -30,7 +30,7 @@ In this exercise you will apply what you have learned about reading, manipulatin
 When given an image, the program should detect all faces contained in it. For each face, it should crop out a square region of the image containing the face (including an appropriate margin) and write it to a file. Both the input and the outputs are color images. Use the provided resources to complete the program according to the above specification.
 
 ### Hints
-- Select an XML-file from the ones included in the course material and tweak the arguments of the classifier until most of the faces in provided images are detected, while no false detections are returned.
+- Try printing the `cascade_paths`-variable to see the list of included XML-files. Select an appropriate XML-file and tweak the arguments of the classifier until most of the faces in provided images are detected, while no false detections are returned.
 
 - The Haar feature-based cascade classifier is a compononent in the Viola–Jones object detection framework, which is used for facial recognition in digital cameras, among other applications. For those interested in how the classifier works, the provided resource contains a short description, and includes a link to the original paper describing the classifier.
 
