@@ -3,4 +3,4 @@ import cv2
 
 # TODO: Read an image from a file.
 
-# TODO: Displays the image.
+# TODO: Display the image.
