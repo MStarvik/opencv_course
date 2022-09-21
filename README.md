@@ -14,9 +14,11 @@ When attempting to run your program for the first time you might get the warning
 - [High-level GUI](https://docs.opencv.org/4.x/d7/dfc/group__highgui.html)
 
 ## Exercise 2 - Manipulating and writing images 
-In this exercise you will convert color images to grayscale and write the result to a file. The easiest way to convert a color image to grayscale is to . 
+In this exercise you will convert color images to grayscale and write the result to a file. OpenCV does, of course, have built-in functions for color space conversions, but you will implement your own. The easiest way to convert a color image to grayscale is to compute the average of the three channels for each pixel in the image. This is the same as computing the weighted sum of the three channels, where the weights are all equal to 1/3.
 
-OpenCV does, of course, have built-in functions for color space conversions, but you will implement your own. Use the provided resources to complete all TODOs in exercise_2.py.
+Try converting an image to grayscale using the above method. You may notice that the result doesn't look quite right. This is because to our eyes, not all colours contribute equally to the perceived brightness of a scene. The color green contributes the most, followed by red, followed by blue. This phenomenon is known as perceptual luminance. To account for perceptual luminance when converting an image to grayscale, we can compute the weighted sum of the three channels using different weights for each channel. Research shows that the color red contributes about 0.2126 of the brightness, green contributes about 0.7152 and blue contributes about 0.0722.
+
+Again, try converting an image to grayscale using the above method. Thats a lot better, but the result still doesn't look quite right. This is because images are compressed in a way that exploits the non-linear relationship between luminosity and perceived luminance. This technique is known as gamma compression. To properly account for gamma compression, we would need to compute a non-linear function the three channels for each pixel in the image. This is computationally inefficient, so instead we use a linear approximation of the non-linear function. Using this linear approximation the color red contributes about 0.299 of the brightness, green contributes about 0.587 and blue contributes about 0.114.
 
 ### Hints
 - Implement a function with two arguments, a three-channel image and a tuple of three floating point numbers. The function should return a single channel image where each pixel is the weighted sum of the values of the corresponding pixel in the three-channel image. The weights should be the values in the tuple.
